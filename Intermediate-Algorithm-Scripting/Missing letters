@@ -1,0 +1,21 @@
+function fearNotLetter(str) {
+  
+  // alphabet string to compare
+  var alphabet = "abcdefghijklmnopqrstuvwxyz",
+      // where we start in alphabet string
+      start = alphabet.indexOf(str[0]),
+      // keeps our place as we move through str
+      count = 0;
+
+  // loop that starts with our first character in str
+  for (var i = start; i < str.length; i++) {
+    // if current character in str = alphabet sequence
+    if (str[count] === alphabet[i]) {
+      // count moves to next character in str
+      count++;
+    } else {
+      // returns character that is missing, unless no characters are missing - returns "undefined"
+      return alphabet[i];
+    }
+  }
+}
