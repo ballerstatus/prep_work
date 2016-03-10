@@ -1,0 +1,22 @@
+function diff(arr1, arr2) {
+  var newArr = [];
+  var arr = arr1.concat(arr2); // merge both arrays
+  // Same, same; but different.
+    
+  for (var check in arr) { // for...in checks for duplicate entries
+    var x = arr[check]; // x = the "number" we are checking for
+    var y = 0;          // y = keep count of times "check" has been added
+    
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === x) { // if current index in merged array = the number we are currently checking for
+          y++;              // tally +1 to y for # of times the entry appears in the merged array
+        }
+      }
+    
+    if (y === 1) { // y = # of times each number is in the array, 1 = one appearance 
+      newArr.push(x); // push any non-duplicated entry into the newArr
+    }
+  }
+  
+  return newArr;
+}
