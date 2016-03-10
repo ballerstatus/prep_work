@@ -1,0 +1,13 @@
+function where(collection, source) {
+  var arr = collection.filter(function (item) {
+    // filter out all items prop/values that do not include the source prop/value search key
+    for (var i in source) {
+      if (source[i] != item[i]) {
+        return false;
+      }
+    }
+        return true;
+  });
+    // What's in a name?
+  return arr;
+}
