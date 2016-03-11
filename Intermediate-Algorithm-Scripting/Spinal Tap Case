@@ -1,0 +1,25 @@
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  
+    // check for spaces and underscores in str
+    var pattern = /[\s_]/g,
+        // empty string to modify exisiting str
+        newStr = "";
+    // function to use if no spaces/_ are present
+    function noSpace(str) {
+      return "-" + str.toLowerCase();
+    }
+  
+  // if there are spaces/_
+  if (pattern.test(str) === true) {
+    // new string is previous str with space/_ removed 
+    newStr = str.replace(pattern, "-");
+    // new string becomes spinal tap case with toLowerCase
+    return newStr.toLowerCase();
+  } else {
+    // if no space/_ present, return modified spinal tap case str
+    return str.replace(/[A-Z]/g, noSpace);
+  }
+  
+}
