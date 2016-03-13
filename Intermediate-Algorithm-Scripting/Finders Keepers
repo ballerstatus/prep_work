@@ -1,0 +1,12 @@
+function find(arr, func) {
+  
+  // filter to find any number in an array that passes the test
+  function finder(keeper) {
+    return keeper % 2 === 0;
+  }
+  
+  // filter arr 
+  var num = arr.filter(finder);
+  // return only the first one
+  return num[0];
+}
