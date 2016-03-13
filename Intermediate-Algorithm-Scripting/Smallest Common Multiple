@@ -1,0 +1,29 @@
+function smallestCommons(arr) {
+	var min = arr.sort()[0],
+		max = arr.sort()[1],
+		// initial value to initialize algorithm
+		scm = 1;
+	// loop through min-max range
+	for (var i = min; i <= max; i++) {
+		// finds scm through min-max range
+		scm = scd(scm, i);
+	}
+	//returns scm for all numbers in min-max range
+	return scm;
+}
+
+// we need to determine greatest common denominator...
+function gcd(a, b) {
+	if (b === 0) { // once b "remainder" is 0... 
+		return a; // ...return a, which = GCD
+	} else {
+		return gcd(b, a % b); // do until "remainder" = 0, return to "if"
+	}
+}
+
+// ...and the smallest common denominator
+function scd(a, b) {
+	return a * b / gcd(a, b);
+}
+
+smallestCommons([1,5]);
