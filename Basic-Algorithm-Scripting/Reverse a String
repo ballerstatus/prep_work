@@ -1,0 +1,10 @@
+function reverseString(str) {
+  
+  // split string into array by letter
+  var splitStr = str.split("");
+  
+  // reverse order and join
+  return splitStr.reverse().join("");
+}
+
+reverseString("hello");
