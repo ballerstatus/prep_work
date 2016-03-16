@@ -1,0 +1,18 @@
+function factorialize(num) {
+    
+    // if num = 0, return 1
+    if (num === 0) {
+      return 1;
+    } else {
+      // recursive function with next lowest value from num passed through
+      return (num * factorialize(num - 1));
+    }
+    
+    // result 
+    var result = factorialize(num);
+
+    return result;
+
+}
+
+factorialize(5);
