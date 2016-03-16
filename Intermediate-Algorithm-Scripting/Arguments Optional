@@ -1,0 +1,42 @@
+function add() {
+  var sumOne = 0,
+      argLen = arguments.length;
+  
+  // if more than 1 argument...
+  if (argLen > 1) {
+    for (var i = 0; i < argLen; i++) {
+      // ... and the arguments are numbers...
+      if (typeof arguments[i] === "number") {
+        // ... sum the numbers together
+        sumOne += arguments[i];
+      } else {
+        // if the first argument is not a number, return undefined
+        return undefined;
+      }
+    }
+    // if there is only 1 argument
+  } else {
+    // sumTwo becomes the first "sum"
+    var sumTwo = arguments[0];
+    // as long as the first argument is a number...  
+    if (typeof sumTwo === "number") {
+      // ... we start our function that expects the next argument  
+      return function(newArg) {
+        //  as long as the new argument is a number...
+        if (typeof newArg === "number") {
+          // ... add it to the first "sum"  
+          return sumTwo + newArg;
+          // if it's not a number, return undefined
+        } else {
+            return undefined;
+          }
+        };
+    // if the first - and only - argument is not a number, return undefined  
+    } else {
+        return undefined;
+      }
+  }
+  // only returns sumOne if there are more than 1 argument already present
+  return sumOne;
+  
+}
