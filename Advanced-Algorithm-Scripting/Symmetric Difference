@@ -1,0 +1,38 @@
+function sym(args) {
+  
+  // first we need to return the arguments as an array 
+  var Args = Array.prototype.slice.call(arguments);
+  
+  // function to compare two arrays at a time and find symmetric difference
+  function symDiff (arrOne, arrTwo) {
+    var arrOneLen = arrOne.length,
+        arrTwoLen = arrTwo.length,
+        // "temporary" array to store unique values
+        theDiff = [];
+    
+    for (var i = 0; i < arrOneLen; i++) {
+      // if current element of arrOne is not found in arrTwo AND not found in the temporary array...
+      if (arrTwo.indexOf(arrOne[i]) === -1 && theDiff.indexOf(arrOne[i]) === -1) {
+      	// ... push it
+        theDiff.push(arrOne[i]);
+      }
+    }
+    
+    // we also need to check arrTwo against arrOne
+    for (var j = 0; j < arrTwoLen; j++) {
+      // if current element of arrTwo is not found in arrOne AND not found in temporary array (also containing elements from arrOne)...
+      if (arrOne.indexOf(arrTwo[j]) === -1 && theDiff.indexOf(arrTwo[j]) === -1) {
+      	// ... push it
+        theDiff.push(arrTwo[j]);
+      }
+    }
+    // we now have the unique elements from our two arrays...
+    return theDiff;
+  }
+  
+  // ... and can run the symDiff function against remaining arrays, reducing each time
+  // ((((a vs b) vs c) vs d) etc...)
+  return Args.reduce(symDiff);
+}
+
+sym([1, 2, 3], [5, 2, 1, 4]);
