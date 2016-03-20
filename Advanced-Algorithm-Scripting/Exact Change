@@ -1,0 +1,78 @@
+function checkCashRegister(price, cash, cid) {
+	var newPrice = price * 100, // multiply by 100 to avoid using decimals
+		newCash = cash * 100, // same as above
+		change = newCash - newPrice, // amount customer receives back (multiplied by 100) - value changes with Loop #3
+		changeCopy = change, // copy of change for reference
+		changeTest = cash - price, // test if majority of function even needs to run
+		totalCash = 0, // total sum of cash in register - value changes with Loop #1
+		cashInDrawer = [], // array of register totals by denomination - filled by Loop #1
+		cidLen = cid.length, // helps performance?
+        values = {"ONE HUNDRED": 10000,"TWENTY": 2000,"TEN": 1000,"FIVE": 500,"ONE": 100,"QUARTER": 25,"DIME": 10,"NICKEL": 5,"PENNY": 1}, // value per denomination - changes with Loop #2 and Loop #3
+        valuesCopy = values, // copy of values for reference
+        cashBack = []; // placeholder array for amount returned to customer
+
+    // Loop #1
+    for (var i = 0; i < cidLen; i++) { // iterates through cid
+    	totalCash += (cid[i])[1] * 100; // adds each value to our totalCash
+    	cashInDrawer.push([cid[i][0], Math.round(cid[i][1] * 100)]); // fills array with totals by denomination
+    }
+
+    var totalCashTest = totalCash / 100; // test variable to see if register can handle transaction with pure totals
+
+    // If and/or Else #1 
+    if (changeTest - totalCashTest === 0) { // transaction "takes place" but no amount is returned
+    	return "Closed";
+    } else if (changeCopy > totalCashTest && changeCopy < 100) { // if register cannot handle transaction and (kind of an "or" in this case) safeguards against change returned being less than a dollar when denomination cannot support it
+    	return "Insufficient Funds";
+    }
+
+    var sortDrawer = cashInDrawer.reverse(), // reverse the order to run greatest to lowest for Loop #2
+    	sortDrawerLen = sortDrawer.length; // helps performance? <- This is my understanding
+
+    // Loop #2
+    for (var check in valuesCopy) { // access the properties in valuesCopy object
+    	// If and/or Else #2
+    	if (change < valuesCopy[check]) { // safeguards against deducting < "$100 (10000)" from object
+    		delete valuesCopy[check]; // removes "first" property from COPIED object
+    		sortDrawer.shift([0]); // removes first register "slot" from being accessed
+    	}
+    	// Loop #3
+    	while (change >= valuesCopy[check]) { // loops through object values
+    		cashBack.push(check); // fills array with collection of properties that match the values needed
+    		change -= valuesCopy[check]; // value is deducted from change remaining
+    		sortDrawer[0][1] -= valuesCopy[check]; // value is deducted from register "slot"
+    			// If and/or Else #3
+    			if (sortDrawer[0][1] === 0) { // if register "slot" becomes empty
+    				delete valuesCopy[check]; // remove it from available values
+    				sortDrawer.shift([0]); // remove register "slot" access
+    			}
+    	}
+    }
+
+    var count = {}, // object property will be filled by [j] in cashBack array, values by number of times [j] appears
+    drawerLen = cashBack.length, // again, performance?
+    valueCount = [["ONE HUNDRED", 10000],["TWENTY", 2000],["TEN", 1000],["FIVE", 500],["ONE", 100],["QUARTER", 25],["DIME", 10],["NICKEL", 5],["PENNY", 1]], // denomination values
+    valueCountLen = valueCount.length, // performance... yeesh
+    cashOut = []; // the change to be returned from register to customer
+
+    // Loop #4
+    for (var j = 0; j < drawerLen; j++) {
+    	count[cashBack[j]] = (count[cashBack[j]] || 0) + 1; // counts the occurence of [j] and keeps count
+    }
+
+    // Loop #5
+    for (var k = 0; k < valueCountLen; k++) {
+    	// Loop #6
+    	for (var item in count) { // access properties in count
+    		// If and/or Else #4
+    		if (item == valueCount[k][0]) { // if the property matches first index of valueCount
+    			cashOut.push([item, (count[item] * valueCount[k][1]) / 100]); // fill array with the item and (its count multiplied by the value) divided by 100 to return a "pure" amount
+    		}
+    	}
+    }
+
+    return cashOut; // array of denominations and amounts to return to customer
+
+}
+
+checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
