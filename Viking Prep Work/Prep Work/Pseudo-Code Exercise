@@ -1,0 +1,115 @@
+// Pseudo-Code Exercise
+
+Mmmm... Grilled Cheese
+
+Just to get in the right frame of mind, we'll start with a classic pseudocoding exercise -- writing a recipe. In this case, break out the recipe for making grilled cheese into discrete steps. It may seem simple but it should be at least 20-30 steps and include things like setting things up and checking if it's done. We'll start you off:
+
+PROGRAM GrilledCheeseSandwich
+
+	Find 
+			Bread
+			Cheese
+		in the kitchen
+
+	IF burner is turned off
+		turn burner on
+	END
+
+	Place skillet on burner
+	Combine bread and cheese to form sandwich
+	Place butter on skillet
+	IF butter is melted
+		Place sandwich in skillet
+			WHILE sandwich cooks
+				IF sandwich color is not brown
+					Flip sandwich in skillet
+				ELSE 
+					Remove sandwich from skillet
+	END
+
+	Place sandwich on counter
+
+	IF burner is turned on
+		turn burner off
+	END
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################
+	
+Shopping for Ingredients
+
+Let's go shopping! You've got a list in hand with a variable number of things that need to be procured from the grocery store. The store is laid out into 10 aisles but their signs have all been taken down for repairs so you're not sure which aisles contain which foods.
+
+Write a program which will acquire and then check out with all your items. Start with very broad strokes and then get more specific until you're comfortable with the level of detail. This will probably require more than 50 steps.
+
+
+
+PROGRAM GroceryShopping
+
+	Start in aisle 1
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################
+
+A Logic Game
+
+10 friends are sitting in a circle around a table and decide to play a new game. In it, they count up through the numbers from 1 to 100. The first person says "1", the second says "2" and so on... but with a few catches:
+
+Whenever the number is divisible by 7, they switch directions. So person 6 will say "6", person 7 will say "7", then person 6 again will say "8".
+Whenever the number is divisible by 11, they skip the next person.
+Your job is to pseudocode a program which will determine which player says the number 100. For this one, be as specific as possible to actually write out the logic of the procedure.
+
+PROGRAM CounterGame
+
+
+
+END
+
+
+
+
+
+
+
+
+
+

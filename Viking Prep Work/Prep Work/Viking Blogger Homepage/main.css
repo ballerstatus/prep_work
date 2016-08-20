@@ -1,0 +1,218 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+/* STYLE RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* PAGE CSS */
+
+/** body **/
+
+body {
+	font-family: Helvetica, sans-serif;
+}
+
+a {
+	color: #085394;
+	text-decoration: none;
+}
+
+.post {
+
+}
+
+/** navbar **/
+
+.navbar {
+	height: 70px;
+	border: 1px solid black;
+}
+
+.nav-elements-container {
+	float: right;
+}
+
+.logo-container {
+	line-height: 70px;
+	padding-left: 10px;
+	float: left;
+}
+
+.logo-container img {
+	height: 45px;
+	width: 45px;
+	vertical-align: middle;
+}
+
+.logo-container h2 {
+	font-size: 24px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nav-elements-container .button {
+	font-size: 24px;
+	text-align: center;
+	width: 195px;
+	display: inline-block;
+	height: 70px;
+	line-height: 70px;
+}
+
+.cta-button {
+	font-weight: 700;
+	color: white;
+	background-color: #2b78e4;
+}
+
+/** search **/
+
+.search-container {
+	margin: 30px auto;
+	width: 620px;
+}
+
+.search-container input {
+	padding: 2px;
+}
+
+.search-container .search-bar {
+	font-size: 24px;
+	line-height: 35px;
+	width: 446px;
+	border: 1px solid gray;
+	padding-left: 12px;
+}
+
+.search-container .search-submit {
+	line-height: 35px;
+	font-size: 24px;
+	border: 1px solid gray;
+	width: 136px;
+	margin-left: 16px;
+}
+
+/** text posts **/
+
+.post-container {
+	margin: 30px auto;
+	width: 620px;
+}
+
+.post {
+	padding: 40px 80px;
+	border: 2px solid #ddd;
+	margin: 40px 0;
+}
+
+.post h2 {
+	font-size: 24px;
+	margin: .5em 0;
+}
+
+.post .post-date {
+	font-size: 14px;
+	text-align: right;
+	color: #ccc;
+	margin: 1em 0;
+}
+
+.post .post-body {
+	font-size: 16px;
+	color: #444;
+	line-height: 1.25em;
+}
+
+.post .comment-links-wrapper {
+	margin: 20px 0;
+	font-size: 14px;
+}
+
+.post .view-comments {
+	float: left;
+}
+
+.post .write-comment {
+	float: right;
+}
+
+/** photo post **/
+
+.post .post-date-photo {
+	text-align: left;
+}
+
+.post .post-photo-wrapper {
+	width: 100%;
+	height: 450px;
+	background-color: #eee;
+}
+
+.post .post-photo-wrapper img {
+	margin: auto;
+	height: 200px;
+	width: 200px;
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
