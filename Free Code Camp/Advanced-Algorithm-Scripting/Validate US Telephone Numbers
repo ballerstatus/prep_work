@@ -1,0 +1,19 @@
+function telephoneCheck(str) {
+  // Good luck!
+  
+  // RegExp for matching valid us phone numbers (with no extensions)
+  var phoneA = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:[(]\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*[)]|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*\s*)?$/gm;
+  
+  
+  // if number entered matches regex return true
+  if (str.match(phoneA)) {
+    return true;
+  } else {
+    return false;
+  }
+  
+
+}
+
+
+telephoneCheck("1 555-555-5555");

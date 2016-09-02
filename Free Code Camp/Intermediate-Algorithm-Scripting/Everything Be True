@@ -1,0 +1,17 @@
+function every(collection, pre) {
+  // Is everyone being true?
+  
+  // counter to keep track of truthy values
+  var check = 0;
+  
+  for (var collect in collection) {
+    // if it has the argument property & value is truthy
+    if (collection[collect].hasOwnProperty(pre) && Boolean(collection[check][pre])) {
+      // tally a truthy value
+      check++;
+    }
+  }
+  
+  // if counter = length, all are true; if not, a value does not match and returns false
+  return check == collection.length;
+}

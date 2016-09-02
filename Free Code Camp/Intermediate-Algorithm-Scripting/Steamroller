@@ -1,0 +1,27 @@
+function steamroller(arr) {
+  // I'm a steamroller, baby
+  
+  var rolled = [];
+  
+  // function to push through deep-nested arrays if necessary
+  function roller(arr) {
+    
+    for (var i = 0; i < arr.length; i++) {
+      // if current index IS an array itself
+      if (Array.isArray(arr[i])) {
+        // roll through array\(s) until element can be pushed
+        roller(arr[i]);
+      } else {
+        // once current index is NOT an array itself, push element
+        rolled.push(arr[i]);
+      }
+    }
+  }
+  
+  // intiate roller function to flatten deep-nested array if necessary
+  roller(arr);
+  // returned rolled array
+  return rolled;
+}
+
+steamroller([1, [2], [3, [[4]]]]);

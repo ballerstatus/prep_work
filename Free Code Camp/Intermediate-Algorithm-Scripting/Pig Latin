@@ -1,0 +1,24 @@
+function translate(str) {
+  
+  var vowels = /[aeiou]/, // regex for testing against vowels
+      splitStr = str.split(""); // split str 
+  
+  if (vowels.test(splitStr[0])) { // if str starts with vowel...
+    return str + "way";           // return str + "way"
+  }
+  
+  while(true) {    
+    // while the test fails
+    if (!vowels.test(splitStr[0])) { 
+      // splice the failed letter to end of array until a vowel is reached
+      splitStr.push(splitStr.splice(0,1));
+      // once vowel is reached, merge items + "ay"
+      str = splitStr.join("") + "ay";
+    } else {
+      // end while loop once vowel is reached
+      break;
+    }
+  }
+  
+  return str;
+}

@@ -1,0 +1,15 @@
+function myReplace(str, before, after) {
+  
+  var splitStr = str.split(" "), // splits string into array 
+      position = splitStr.indexOf(before), // find position of "before" word
+      capAfter = after.charAt(0).toUpperCase() + after.slice(1); //  capitalized after ~if needed~
+  
+
+      if (before.charAt(0) === before.charAt(0).toUpperCase()) { // if before is proper
+        splitStr.splice(position, 1, capAfter); // splice in capitalized after
+      } else {
+        splitStr.splice(position, 1, after); // or splice in regular after
+      }
+  
+  return splitStr.join(" "); // join array to form the new string
+}

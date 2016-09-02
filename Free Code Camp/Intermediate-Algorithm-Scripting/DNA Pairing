@@ -1,0 +1,31 @@
+function pair(str) {
+  
+  // split str to evaluate each character
+  var splitStr = str.split(""),
+      // empty array to push pairings
+      dna = [];
+  
+  // iterate through each character 
+  for (var i = 0; i < splitStr.length; i++) {
+    // for each letter that comes through the function
+    switch (splitStr[i]) {
+      // match and push the pair into dna empty array
+      case ("A"):
+        dna.push(["A","T"]);
+        break;
+      case ("T"):
+        dna.push(["T","A"]);
+        break;
+      case ("C"):
+        dna.push(["C","G"]);
+        break;
+      case ("G"):
+        dna.push(["G","C"]);
+        break;
+      default:
+        return("No value found");
+    }
+  }
+  
+  return dna;
+}

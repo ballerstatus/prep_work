@@ -1,0 +1,19 @@
+function unite(arr1, arr2, arr3) {
+  // splice n number of arguments in unite
+  var args = [].splice.call(arguments, 0),
+      // concat n number of arguments
+      united = args.reduce(function(a, b) {
+        return a.concat(b);
+      }),
+      // empty array to push all non-duplicated items
+      sortedUnion = [],
+      // if current number index matches position
+      sorted = united.filter(function(elem, pos) {
+        if (united.indexOf(elem) == pos) {
+          // add it to empty array, if not - skip
+          sortedUnion.push(elem);
+        }
+      });
+
+  return sortedUnion;
+}

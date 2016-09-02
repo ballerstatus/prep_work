@@ -1,0 +1,14 @@
+function binaryAgent(str) {
+  
+  // split str into individual elements to convert
+  var splitStr = str.split(" "),
+      // empty array to push charcodes
+      convert = [];
+  // go through each element in splitStr
+  for (var i = 0; i < splitStr.length; i++) {
+    // convert each binary into a charcode and push into convert
+    convert.push(parseInt(splitStr[i], 2));
+  }
+  // use apply and pass convert array as arg, converting charcode to string 
+  return String.fromCharCode.apply(String, convert);
+}

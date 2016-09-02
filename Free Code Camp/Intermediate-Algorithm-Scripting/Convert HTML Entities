@@ -1,0 +1,34 @@
+function convert(str) {
+  // &colon;&rpar;
+  
+  // split string to search for individual HTML entities
+  var splitStr = str.split(""),
+      // array to push characters in
+      fix =[];
+  
+  // iterate through each character
+  for (var i = 0; i < splitStr.length; i++) {
+    switch (splitStr[i]) {
+      // match and push the conversion into fix empty array
+      case ("&"):
+        fix.push("&amp;");
+        break;
+      case ("<"):
+        fix.push("&lt;");
+        break;
+      case (">"):
+        fix.push("&gt;");
+        break;
+      case ("\""):
+        fix.push("&quot;");
+        break;
+      case ("\'"):
+        fix.push("&apos;");
+        break;
+      default:
+        fix.push(splitStr[i]);
+    }
+  }
+  
+  return fix.join("");
+}

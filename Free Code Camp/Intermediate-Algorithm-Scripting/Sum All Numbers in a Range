@@ -1,0 +1,17 @@
+function sumAll(arr) {
+  
+  // find largest number in arr
+  var max = Math.max.apply(null, arr);
+  // find smallest number in arr
+  var min = Math.min.apply(null, arr);
+  // starting point
+  var total = 0;
+  
+  // iterate through each number starting at min and ending at max
+  for (var i = min; i <= max; i++) {
+    // add each number to total
+    total += i;
+  }
+  
+  return total;
+}

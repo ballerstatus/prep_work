@@ -1,0 +1,11 @@
+function drop(arr, func) {
+  // Drop them elements.
+  
+  // while func = false
+  while (!func(arr[0])) {
+    // "remove" falsy current element
+    arr.shift();
+  }
+  // once func = true; return the remaining array
+  return arr;
+}

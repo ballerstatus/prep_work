@@ -1,0 +1,24 @@
+function sumFibs(num) {
+  // variables to keep track of Fib numbers
+  var prevNum = 0,
+      currentNum = 1,
+      total = 0;
+  // as currentNum increases, check to ensure is < num
+  while (currentNum <= num) {
+    // if currentNum is odd
+    if (currentNum % 2 !== 0) {
+      // add it to total
+      total += currentNum;
+    }
+    // variable loop for increments
+    var result = currentNum + prevNum;
+    // loop increases prevNum
+    prevNum = currentNum;
+    // currentNum increments by Fib formula and begins while loop
+    currentNum = result;
+  }
+  // sum of all ODD Fibonacci numbers ONLY
+  return total;
+}
+
+sumFibs(4);

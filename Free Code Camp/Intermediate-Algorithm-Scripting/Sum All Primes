@@ -1,0 +1,35 @@
+function sumPrimes(num) {
+  
+  // push primes once they pass the check
+  var primes = [],
+      total;
+  
+  // cycle through 2 -> num /2, 3, 4, 5, 6, 7, 8, 9, 10/
+  for (var i = 2; i <= num; i++) {
+    // initialize the check as true
+    var primeCheck = true;
+    // divide by 2 -> i
+    for (var j = 2; j < i; j++) {
+      // if divisible by 2 and any other number with no remainder
+      if (i % j === 0) {
+        // mark as false 
+        primeCheck = false;
+        }
+      }
+    
+    
+    if (primeCheck) {
+      // if not divisible by 2 and any other number, it is a prime
+      primes.push(i);
+    }
+  }
+  
+  // total the array of primes
+  total = primes.reduce(function(a, b) {
+    return a + b;
+  });
+  
+  return total;
+}
+
+sumPrimes(10);
